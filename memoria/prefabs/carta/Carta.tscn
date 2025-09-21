@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv0r37iuu1koe"]
+
+[ext_resource type="Texture2D" uid="uid://ovapqwe1dcb4" path="res://imagens/fundo.png" id="1_7ff5x"]
+[ext_resource type="Script" uid="uid://beuwhily1k5jy" path="res://prefabs/carta/carta.gd" id="1_bvtk6"]
+[ext_resource type="Texture2D" uid="uid://7bf5uj5ij3r8" path="res://imagens/cartas/2_of_clubs.png" id="2_548fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_548fs"]
+size = Vector2(96, 144)
+
+[node name="Area2D" type="Area2D" groups=["cartas"]]
+script = ExtResource("1_bvtk6")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(-1.9073486e-06, -0.5)
+scale = Vector2(0.19199999, 0.19972451)
+texture = ExtResource("1_7ff5x")
+
+[node name="Frente" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.192, 0.2)
+texture = ExtResource("2_548fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_548fs")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
