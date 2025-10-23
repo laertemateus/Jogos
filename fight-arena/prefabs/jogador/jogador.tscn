@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt0hqqfsumsft"]
+
+[ext_resource type="Script" uid="uid://d1dw53gl18g26" path="res://prefabs/jogador/jogador.gd" id="1_h6d84"]
+[ext_resource type="Texture2D" uid="uid://c5ww34e5p53bn" path="res://icon.svg" id="1_jo0ca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6d84"]
+size = Vector2(128, 128)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_jo0ca"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Jogador" type="CharacterBody2D"]
+script = ExtResource("1_h6d84")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_jo0ca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h6d84")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_jo0ca")
+
+[node name="LabelID" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -88.0
+offset_right = 64.0
+offset_bottom = -65.0
+horizontal_alignment = 1
+
+[node name="LabelPosition" type="Label" parent="."]
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 87.0
+horizontal_alignment = 1

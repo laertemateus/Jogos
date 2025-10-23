@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqto05kaugfq8"]
+
+[ext_resource type="Script" uid="uid://4mv7e54xsshg" path="res://cenas/principal.gd" id="1_ym8g7"]
+
+[node name="Principal" type="Node2D"]
+script = ExtResource("1_ym8g7")
+
+[node name="EditUsername" type="TextEdit" parent="."]
+offset_left = 64.0
+offset_top = 88.0
+offset_right = 512.0
+offset_bottom = 128.0
+
+[node name="ButtonConnect" type="Button" parent="."]
+offset_left = 896.0
+offset_top = 344.0
+offset_right = 1024.0
+offset_bottom = 384.0
+text = "Connect"
+
+[node name="ButtonIniciar" type="Button" parent="."]
+offset_left = 344.0
+offset_top = 496.0
+offset_right = 728.0
+offset_bottom = 536.0
+text = "Iniciar"
+
+[node name="ButtonHost" type="Button" parent="."]
+offset_left = 640.0
+offset_top = 152.0
+offset_right = 1024.0
+offset_bottom = 192.0
+text = "Host"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 192.0
+offset_bottom = 80.0
+text = "USERNAME"
+
+[node name="LabelHost" type="Label" parent="."]
+offset_left = 640.0
+offset_top = 200.0
+offset_right = 1024.0
+offset_bottom = 224.0
+
+[node name="EditServerHost" type="TextEdit" parent="."]
+offset_left = 640.0
+offset_top = 344.0
+offset_right = 856.0
+offset_bottom = 384.0
+text = "127.0.0.1"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bt0hqqfsumsft")
+spawn_path = NodePath("..")
+spawn_limit = 1000
+
+[connection signal="button_down" from="ButtonConnect" to="." method="_on_button_connect_button_down"]
+[connection signal="button_down" from="ButtonIniciar" to="." method="_on_button_iniciar_button_down"]
+[connection signal="button_down" from="ButtonHost" to="." method="_on_button_host_button_down"]
